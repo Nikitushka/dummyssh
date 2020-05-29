@@ -20,6 +20,8 @@ import (
 	"sync"
 )
 
+// the two variables below are from the findssh.go that is linked in the sources in the README
+// for the purpose of Go Routines
 const LIMIT = 10
 
 var throttler = make(chan int, LIMIT)
@@ -113,7 +115,7 @@ func connect(wg *sync.WaitGroup, username string, pass string, host string)  {
 
 // use a pointer to reference the options the user sent and start bruteforcing based on the set parameters
 func (opt *Options) brute() {
-	var wg sync.WaitGroup
+	var wg sync.WaitGroup // this variable is also from the findssh.go referenced in the sources part of the README
 	if opt.userlist != "" && opt.passlist != "" {
                 users := read(opt.userlist)
                 passwords := read(opt.passlist)
