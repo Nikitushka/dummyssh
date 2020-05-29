@@ -3,34 +3,42 @@ A little project of mine for the intensive Go-programming course taught by Tero 
 http://terokarvinen.com/2020/go-programming-course-2020-w22/
 
 # whatis dummysshbruter
-This little project in essence is a very basic ssh shell that establishes a connection to host and can run simple commands,
-like pwd, ls & whoami by brute-forcing the remote host with username and password lists
+This little project in essence is an ssh bruteforces that establishes a connection to host, with capabilities for a very basic ssh shell and can run simple commands,
+like pwd, ls & whoami by brute-forcing the remote host with combinations of usernames and passwords
 
 # Usage
 If you have go installed:
 
 `go build`
 
-Alternatively, you can run the pre-built binary in this repo and see the list of flags:
+Alternatively, you can run the pre-built binary in this repo for your OS and see the list of flags:
 
 ```
-./dummyssh --help
-
--h string
-    remote host (default "127.0.01")
+./dummysshbruter --help
 -P string
-    password file
+    Wordlist containing passwords. e.g. '/path/to/wordlist'
 -U string
-    username file
+    Wordlist containing usernames. e.g. '/path/to/wordlist'
+-h string
+    Remote host. (default "127.0.01")
+-p string
+    Remote passwords.
+-u string
+    Remote username. (default <your system user>)
+
 ```
 
 Example:
 
 ```
 ./dummyssh -U users.txt -P passwords.txt -h xxx.xxx.xxx.xxx
-Connection established!
+
+ !!!! Connection established! Correct creds are: admin:hunter2 !!!!
 pwd
 /home
+
+ls
+passwordreminder.txt
 
 exit
 
